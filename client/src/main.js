@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import './styles/style.css'
 import App from './App.vue'
+import router from './routes';
 import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
 import 'primeicons/primeicons.css'
@@ -22,4 +23,5 @@ app.use(PrimeVue, {
     }
 });
 app.use(pinia)
+app.use(router)
 app.mount('#app')
