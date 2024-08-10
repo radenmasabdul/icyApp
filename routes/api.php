@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LogoutController;
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Student\StudentController;
+use App\Http\Controllers\Course\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,4 +46,13 @@ Route::middleware('auth:api')->prefix('students')->group(function () {
     Route::get('/show/{id}', [StudentController::class, 'show']);
     Route::post('/update/{id}', [StudentController::class, 'update']);
     Route::delete('/delete/{id}', [StudentController::class, 'destroy']);
+});
+
+//course
+Route::middleware('auth:api')->prefix('course')->group(function () {
+    Route::get('/get', [CourseController::class, 'index']);
+    Route::post('/store', [CourseController::class, 'store']);
+    Route::get('/show/{id}', [CourseController::class, 'show']);
+    Route::post('/update/{id}', [CourseController::class, 'update']);
+    Route::delete('/delete/{id}', [CourseController::class, 'destroy']);
 });
