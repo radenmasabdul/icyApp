@@ -23,6 +23,7 @@ class AdminController extends Controller
 
             //searching
             if($request->has('search')) {
+                $search = $request->get('search');
 
                 //get column from table user
                 $searchableColumns = (new User)->getFillable();
