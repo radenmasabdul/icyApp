@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Student\StudentController;
 
 /*
@@ -26,6 +27,15 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LogoutController::class, 'logout']);
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+//admin
+Route::middleware('auth:api')->prefix('admin')->group(function () {
+    Route::get('/get', [AdminController::class, 'index']);
+    Route::post('/store', [AdminController::class, 'store']);
+    Route::get('/show/{id}', [AdminController::class, 'show']);
+    Route::post('/update/{id}', [AdminController::class, 'update']);
+    Route::delete('/delete/{id}', [AdminController::class, 'destroy']);
 });
 
 //student
