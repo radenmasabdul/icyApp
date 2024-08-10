@@ -24,7 +24,6 @@ class RegisterController extends Controller
             'name' => 'required|string|max:225',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'role' => 'required|string|in:administrator, userHQ, userBranch',
         ]);
 
         //if validation fails
@@ -37,7 +36,7 @@ class RegisterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role,
+            'role' => 'administrator',
         ]);
 
         //return json success
