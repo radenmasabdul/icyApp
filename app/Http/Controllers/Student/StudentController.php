@@ -16,10 +16,47 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function index(Request $request)
     {
         try {
-            $students = Student::all();
+            $query = Student::query();
+
+            //searching
+            if($request->has('search')) {
+                $search = $request->get('search');
+
+                //get column from table student
+                $searchableColumns = (new Student)->getFillable();
+
+                //delete password column from the array, because the password does'nt need to be searched
+                if(($key = array_search('password', $searchableColumns)) !== false) {
+                    unset($searchableColumns[$key]);
+                }
+
+                //do searching
+                $query->where(function ($q) use ($search, $searchableColumns) {
+                    foreach ($searchableColumns as $column) {
+                        $q->orWhere($column, 'like', '%' . $search . '%');
+                    }
+                });
+            }
+
+            //pagination
+            $page = $request->get('page', 1);
+            $perPage = $request->get('perPage', 10);
+
+            //get the paginate result
+            $students = $query->paginate($perPage, ['*'], 'page', $page);
+
+            //auto add queue number
+            $students->getCollection()->transform(function ($student, $key) use ($page, $perPage) {
+                $student->no = ($key + 1) + ($perPage * ($page - 1));
+                return $student;
+            });
+
+            //hide password field from response
+            $students->makeHidden(['password']);
+
             return response()->json($students);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Failed to retrieve students', 'message' => $e->getMessage()], 500);

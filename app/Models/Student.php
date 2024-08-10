@@ -18,4 +18,8 @@ class Student extends Model
         'phone',
         'gender',
     ];
+
+    protected $hidden = [
+        'password', // Hides the password field from the JSON output
+    ];
 }
