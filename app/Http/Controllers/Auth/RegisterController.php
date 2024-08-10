@@ -24,7 +24,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:225',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'role' => 'required|string|in:administrator, adminbranch',
+            'role' => 'required|string|in:administrator,adminbranch',
         ]);
 
         //if validation fails
