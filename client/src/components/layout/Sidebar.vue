@@ -33,7 +33,7 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <div class="card flex justify-center">
+  <div class="card flex justify-start py-4">
     <Drawer v-model:visible="visible">
       <template #container>
         <div class="flex flex-col h-full">
