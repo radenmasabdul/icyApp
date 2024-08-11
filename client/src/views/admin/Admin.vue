@@ -3,7 +3,7 @@ import Layout from "../../layout/Layout.vue";
 import Table from "../../components/Table.vue";
 import AddNewAdmin from "../../components/admin/AddNewAdmin.vue";
 
-import { ref, onBeforeMount, computed, watch } from "vue";
+import { ref, onBeforeMount, computed } from "vue";
 import { useadminStore } from "../../utils/stores/admin/admin";
 
 import Api from "../../utils";
@@ -13,6 +13,9 @@ import Cookies from "js-cookie";
 const store = useadminStore();
 const dataListAdmin = computed(() => store.getDataAdmin);
 const totalRecords = computed(() => store.getTotalRecords);
+const perPage = computed(() => store.getPerPage);
+
+const search = ref(store.search);
 
 const columns = [
   { field: "no", header: "No" },
@@ -21,24 +24,8 @@ const columns = [
   { field: "role", header: "Role" },
 ];
 
-const searchQuery = ref("");
-const currentPage = ref(1);
-const rowsPerPage = ref(10);
-
 onBeforeMount(async () => {
-  await store.dataListAdmin();
-});
-
-watch(searchQuery, (newQuery) => {
-  store.setSearchQuery(newQuery);
-});
-
-watch(currentPage, (newPage) => {
-  store.setCurrentPage(newPage);
-});
-
-watch(rowsPerPage, (newPerPage) => {
-  store.setPerPage(newPerPage);
+  await store.dataListAdmin(true);
 });
 
 const fetchData = async () => {
@@ -82,6 +69,17 @@ const deleteUsers = async (id) => {
     }
   }
 };
+
+const onPageChange = async (event) => {
+  store.currentPage = event.page + 1;
+  store.perPage = event.rows;
+  await store.dataListAdmin(true);
+};
+
+const handleSearch = () => {
+  store.search = search.value;
+  store.dataListAdmin(true);
+};
 </script>
 
 <template>
@@ -101,13 +99,14 @@ const deleteUsers = async (id) => {
             name="search"
             placeholder="Search..."
             class="w-full"
-            v-model="searchQuery"
+            v-model="search"
+            @input="handleSearch"
           />
         </div>
 
         <div class="mx-5 my-2">
           <Table>
-            <DataTable :value="dataListAdmin" stripedRows>
+            <DataTable :value="dataListAdmin" stripedRows v-if="dataListAdmin.length > 0">
               <Column
                 sortable
                 v-for="data in columns"
@@ -127,11 +126,32 @@ const deleteUsers = async (id) => {
                 </template>
               </Column>
             </DataTable>
+
+            <DataTable :value="dataListAdmin" stripedRows v-else>
+              <Column
+                sortable
+                v-for="data in columns"
+                :key="data.field"
+                :field="data.field"
+                :header="data.header"
+              ></Column>
+
+              <template #empty>
+                <tr>
+                  <td colspan="4" class="text-center font-JakartaSans">Data not found</td>
+                </tr>
+              </template>
+            </DataTable>
           </Table>
         </div>
 
         <div class="flex flex-wrap justify-center py-4">
-          <Paginator :rows="10" :totalRecords="totalRecords" :rowsPerPageOptions="[10, 25, 50, 75, 100]"></Paginator>
+          <Paginator
+            :rows="perPage"
+            :totalRecords="totalRecords"
+            :rowsPerPageOptions="[10, 25, 50, 75, 100]"
+            @page="onPageChange"
+          />
         </div>
       </div>
     </div>

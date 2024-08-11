@@ -5,7 +5,7 @@ import Api from "../../index.js"
 export const useadminStore = defineStore('admin', {
     state: () => ({
         dataAdmin: [],
-        searchQuery: "",
+        search: "",
         currentPage: 1,
         perPage: 10,
         totalRecords: 0,
@@ -17,7 +17,13 @@ export const useadminStore = defineStore('admin', {
         },
         getTotalRecords(state) {
             return state.totalRecords;
-        }
+        },
+        getCurrentPage(state) {
+            return state.currentPage;
+        },
+        getPerPage(state) {
+            return state.perPage;
+        },
     },
     actions: {
         async dataListAdmin(forceRefresh = false) {
@@ -34,33 +40,23 @@ export const useadminStore = defineStore('admin', {
                         Authorization: `Bearer ${token}`,
                     },
                     params: {
-                        search: this.searchQuery,
+                        search: this.search,
                         page: this.currentPage,
                         perPage: this.perPage,
                     }
                 });
-                console.log('hasil res:', res.data.data)
 
                 this.dataAdmin = res.data.data
                 this.totalRecords = res.data.total
+                this.currentPage = res.data.current_page
+                this.perPage = res.data.per_page
+
             } catch (error) {
                 console.error(error)
             } finally {
                 this.isLoading = false;
             }
         },
-        setSearchQuery(query) {
-            this.searchQue = query
-            this.dataListAdmin();
-        },
-        setCurrentPage(page) {
-            this.currentPage = page
-            this.dataListAdmin();
-        },
-        setPerPage(perPage) {
-            this.perPage = perPage
-            this.dataListAdmin();
-        }
     },
 });
 
