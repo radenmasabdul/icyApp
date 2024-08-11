@@ -75,7 +75,7 @@ class AdminController extends Controller
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string',
-            'role' => 'required|string|in:administrator'
+            'role' => 'required|string|in:administrator,adminbranch'
         ]);
 
         if ($validator->fails()) {
@@ -96,7 +96,7 @@ class AdminController extends Controller
         } catch (QueryException $e) {
             return response()->json(['error' => 'Database query error', 'message' => $e->getMessage()], 500);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to create student', 'message' => $e->getMessage()], 500);
+            return response()->json(['error' => 'Failed to create user', 'message' => $e->getMessage()], 500);
         }
     }
 
@@ -140,7 +140,7 @@ class AdminController extends Controller
                 'name' => 'required|string',
                 'email' => 'required|string|email|unique:users,email,' . $user->id,
                 'password' => 'nullable|string',
-                'role' => 'nullable|string|in:administrator',
+                'role' => 'nullable|string|in:administrator,adminbranch',
             ]);
 
             if ($validator->fails()) {
@@ -158,7 +158,7 @@ class AdminController extends Controller
         } catch (QueryException $e) {
             return response()->json(['error' => 'Database query error', 'message' => $e->getMessage()], 500);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to update student', 'message' => $e->getMessage()], 500);
+            return response()->json(['error' => 'Failed to update user', 'message' => $e->getMessage()], 500);
         }
     }
 
@@ -182,7 +182,7 @@ class AdminController extends Controller
         } catch (QueryException $e) {
             return response()->json(['error' => 'Database query error', 'message' => $e->getMessage()], 500);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to delete student', 'message' => $e->getMessage()], 500);
+            return response()->json(['error' => 'Failed to delete user', 'message' => $e->getMessage()], 500);
         }
     }
 }
