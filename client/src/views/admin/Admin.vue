@@ -2,6 +2,7 @@
 import Layout from "../../layout/Layout.vue";
 import Table from "../../components/Table.vue";
 import AddNewAdmin from "../../components/admin/AddNewAdmin.vue";
+import EditAdmin from "../../components/admin/EditAdmin.vue";
 
 import { ref, onBeforeMount, computed } from "vue";
 import { useadminStore } from "../../utils/stores/admin/admin";
@@ -117,8 +118,8 @@ const handleSearch = () => {
 
               <Column header="Actions">
                 <template #body="slotProps">
-                  <div class="flex space-x-2">
-                    <button class="text-blue-500"><i class="fas fa-edit"></i> Edit</button>
+                  <div class="flex gap-4">
+                    <EditAdmin :dataUser="slotProps.data" />
                     <button @click="deleteUsers(slotProps.data.id)">
                       <i class="pi pi-trash" style="color: red"></i>
                     </button>
