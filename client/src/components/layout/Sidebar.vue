@@ -1,34 +1,16 @@
 <script setup>
 import Logo from "../../assets/logo.jpg";
 
-import { ref, onBeforeMount } from "vue";
+import { ref, onBeforeMount, computed } from "vue";
+import { useadminByLoginStore } from "../../utils/stores/auth/adminByLogin.js";
 
-import Cookies from "js-cookie";
-import Api from "../../utils/index.js";
-
-let userData = ref([]);
-let name = ref("");
+const store = useadminByLoginStore();
+const dataAdmin = computed(() => store.getDataAdminLogin);
 
 const visible = ref(false);
 
-const getUserLogin = async () => {
-  try {
-    const token = Cookies.get("token");
-
-    const res = await Api.get("/user", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    userData.value = res.data;
-    name.value = res.data.name;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 onBeforeMount(async () => {
-  await getUserLogin();
+  await store.dataAdmin();
 });
 </script>
 
@@ -197,7 +179,7 @@ onBeforeMount(async () => {
               class="m-4 flex items-center cursor-pointer p-4 gap-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple"
             >
               <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-              <span class="font-bold font-JakartaSans">{{ name }}</span>
+              <span class="font-bold font-JakartaSans">{{ dataAdmin.name }}</span>
             </a>
           </div>
         </div>
