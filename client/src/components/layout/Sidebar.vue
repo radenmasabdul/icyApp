@@ -14,7 +14,6 @@ const visible = ref(false);
 const getUserLogin = async () => {
   try {
     const token = Cookies.get("token");
-    console.log("Token:", token);
 
     const res = await Api.get("/user", {
       headers: {
