@@ -9,6 +9,7 @@ export const useadminStore = defineStore('admin', {
         currentPage: 1,
         perPage: 10,
         totalRecords: 0,
+        isLoading: false,
     }),
     getters: {
         getDataAdmin(state) {
@@ -19,8 +20,12 @@ export const useadminStore = defineStore('admin', {
         }
     },
     actions: {
-        async dataListAdmin() {
+        async dataListAdmin(forceRefresh = false) {
             try {
+
+                if (this.isLoading || (!forceRefresh && this.dataAdmin.length > 0 && !forceRefresh)) return;
+
+                this.isLoading = true;
 
                 const token = Cookies.get("token");
 
@@ -40,6 +45,8 @@ export const useadminStore = defineStore('admin', {
                 this.totalRecords = res.data.total
             } catch (error) {
                 console.error(error)
+            } finally {
+                this.isLoading = false;
             }
         },
         setSearchQuery(query) {

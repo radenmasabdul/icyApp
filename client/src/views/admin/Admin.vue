@@ -42,7 +42,7 @@ watch(rowsPerPage, (newPerPage) => {
 });
 
 const fetchData = async () => {
-  await store.dataListAdmin();
+  await store.dataListAdmin(true);
 };
 
 const deleteUsers = async (id) => {
