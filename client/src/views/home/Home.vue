@@ -1,15 +1,14 @@
 <script setup>
 import Layout from "../../layout/Layout.vue";
-// import ChartReports from "../components/dashboard/ChartReports.vue";
-// import ChartUser from "../components/dashboard/ChartUser.vue";
+import StudentsCharts from "../../components/dashboard/StudentsCharts.vue";
 </script>
 
 <template>
   <Layout>
-    <div class="py-2">
-      <div class="flex flex-wrap justify-center items-center gap-4">
-        <!-- <ChartReports />
-        <ChartUser /> -->
+    <div class="py-2 px-2 min-h-screen">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2 min-h-full">
+        <StudentsCharts />
+        <StudentsCharts />
       </div>
     </div>
   </Layout>
