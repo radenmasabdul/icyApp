@@ -30,7 +30,7 @@ export const useadminStore = defineStore('admin', {
         async dataListAdmin(forceRefresh = false) {
             try {
 
-                if (this.isLoading || (!forceRefresh && this.dataAdmin.length > 0 && !forceRefresh)) return;
+                if (this.isLoading || (!forceRefresh && this.dataAdmin.length > 0)) return;
 
                 this.isLoading = true;
 

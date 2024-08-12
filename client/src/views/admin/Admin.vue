@@ -13,6 +13,7 @@ import Cookies from "js-cookie";
 
 const store = useadminStore();
 const dataListAdmin = computed(() => store.getDataAdmin);
+
 const totalRecords = computed(() => store.getTotalRecords);
 const perPage = computed(() => store.getPerPage);
 
@@ -105,8 +106,8 @@ const resetData = () => {
         </div>
 
         <div class="flex flex-wrap mx-5 my-2 gap-4">
-          <select class="select select-success w-full max-w-xs" v-model="roles">
-            <option value="administrator">Admin</option>
+          <select class="select select-success w-full max-w-xs focus:outline-none" v-model="roles" id="role">
+            <option value="administrator">Administrator</option>
             <option value="adminbranch">Admin Branch</option>
           </select>
 
@@ -114,7 +115,7 @@ const resetData = () => {
             <i class="pi pi-filter-fill" style="color: white"></i>
           </Button>
 
-          <Button type="button" @click="resetData">
+          <Button type="button" class="bg-red-500 border-red-500" @click="resetData">
             <i class="pi pi-refresh" style="color: white"></i>
           </Button>
         </div>

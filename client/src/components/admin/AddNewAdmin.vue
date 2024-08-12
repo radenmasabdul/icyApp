@@ -9,7 +9,6 @@ let visible = ref(false);
 let isHidePassword = ref(true);
 
 const emit = defineEmits(["dataSaved"]);
-const role = ref([{ name: "administrator" }, { name: "adminbranch" }]);
 
 const user = reactive({
   name: "",
@@ -46,7 +45,7 @@ const addNew = async () => {
       name: user.name,
       email: user.email,
       password: user.password,
-      role: user.role?.name,
+      role: user.role,
     };
 
     const res = await Api.post("/admin/store", payload, {
@@ -154,15 +153,12 @@ const closeModal = () => {
           </div>
         </div>
 
-        <div class="flex items-center gap-4 mb-8">
-          <label class="font-semibold w-24">Role</label>
-          <Select
-            v-model="user.role"
-            :options="role"
-            optionLabel="name"
-            placeholder="Select a role"
-            class="flex-auto"
-          />
+        <div class="flex items-center gap-12 mb-8">
+          <label for="role" class="font-semibold w-24">Role</label>
+          <select class="select select-success w-full focus:outline-none" v-model="user.role" id="role">
+            <option value="administrator">Administrator</option>
+            <option value="adminbranch">Admin Branch</option>
+          </select>
         </div>
 
         <div class="flex justify-end gap-2">

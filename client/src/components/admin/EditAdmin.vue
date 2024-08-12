@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, watch } from "vue";
 
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
@@ -11,8 +11,6 @@ const store = useadminStore();
 
 let visible = ref(false);
 let isHidePassword = ref(true);
-
-const role = ref([{ name: "administrator" }, { name: "adminbranch" }]);
 
 const props = defineProps({
   dataUser: Object,
@@ -35,7 +33,7 @@ const saveEditUser = async () => {
       name: form.name,
       email: form.email,
       password: form.password,
-      role: form.role?.name,
+      role: form.role,
     };
 
     const res = await Api.post(`admin/update/${props.dataUser.id}`, payload, {
@@ -110,11 +108,27 @@ const openModal = () => {
 
 const closeModal = () => {
   visible.value = false;
+  resetForm();
+};
+
+const resetForm = () => {
   form.name = initialForm.name;
   form.email = initialForm.email;
   form.password = "";
   form.role = initialForm.role;
 };
+
+watch(
+  () => props.dataUser,
+  (newData) => {
+    if (newData) {
+      initialForm.name = newData.name || "";
+      initialForm.email = newData.email || "";
+      resetForm();
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <template>
@@ -158,15 +172,12 @@ const closeModal = () => {
           </div>
         </div>
 
-        <div class="flex items-center gap-4 mb-8">
-          <label class="font-semibold w-24">Role</label>
-          <Select
-            :options="role"
-            optionLabel="name"
-            placeholder="Select a role"
-            class="flex-auto"
-            v-model="form.role"
-          />
+        <div class="flex items-center gap-12 mb-8">
+          <label for="role" class="font-semibold w-24">Role</label>
+          <select class="select select-success w-full focus:outline-none" v-model="form.role" id="role">
+            <option value="administrator">Administrator</option>
+            <option value="adminbranch">Admin Branch</option>
+          </select>
         </div>
 
         <div class="flex justify-end gap-2">
