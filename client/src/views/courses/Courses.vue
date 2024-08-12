@@ -2,6 +2,7 @@
 import Layout from "../../layout/Layout.vue";
 import Table from "../../components/Table.vue";
 import AddNewCourses from "../../components/courses/AddNewCourses.vue";
+import EditCourses from "../../components/courses/EditCourses.vue";
 
 import { ref, onBeforeMount, computed } from "vue";
 import { usecoursesStore } from "../../utils/stores/courses/courses";
@@ -156,7 +157,7 @@ const formatCurrency = (value) => {
               <Column header="Actions">
                 <template #body="slotProps">
                   <div class="flex gap-4">
-                    <!-- <EditStudents :dataUser="slotProps.data" /> -->
+                    <EditCourses :dataUser="slotProps.data" />
                     <button @click="deleteCourses(slotProps.data.id)">
                       <i class="pi pi-trash" style="color: red"></i>
                     </button>
