@@ -124,6 +124,8 @@ watch(
     if (newData) {
       initialForm.name = newData.name || "";
       initialForm.email = newData.email || "";
+      initialForm.password = newData.password || "";
+      initialForm.role = newData.role || "";
       resetForm();
     }
   },
