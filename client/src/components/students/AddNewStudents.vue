@@ -9,7 +9,6 @@ let visible = ref(false);
 let isHidePassword = ref(true);
 
 const emit = defineEmits(["dataSaved"]);
-const gender = ref([{ name: "Male" }, { name: "Female" }]);
 
 const student = reactive({
   fullname: "",
@@ -60,7 +59,7 @@ const addNew = async () => {
       password: student.password,
       course: student.course,
       phone: student.phone,
-      gender: student.gender?.name,
+      gender: student.gender,
     };
 
     const res = await Api.post("/students/store", payload, {
@@ -201,15 +200,12 @@ const validatePhone = (event) => {
           />
         </div>
 
-        <div class="flex items-center gap-4 mb-8">
-          <label class="font-semibold w-24">Gender</label>
-          <Select
-            v-model="student.gender"
-            :options="gender"
-            optionLabel="name"
-            placeholder="Select a Gender"
-            class="flex-auto"
-          />
+        <div class="flex items-center gap-12 mb-8">
+          <label for="gender" class="font-semibold w-24">Gender</label>
+          <select class="select select-success w-full focus:outline-none" v-model="student.gender" id="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
         </div>
 
         <div class="flex justify-end gap-2">

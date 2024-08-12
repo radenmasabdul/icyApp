@@ -17,6 +17,7 @@ const totalRecords = computed(() => store.getTotalRecords);
 const perPage = computed(() => store.getPerPage);
 
 const search = ref(store.search);
+const gender = ref(store.gender);
 
 const columns = [
   { field: "no", header: "No" },
@@ -84,6 +85,16 @@ const handleSearch = () => {
   store.search = search.value;
   store.dataListStudent(true);
 };
+
+const handleFilterRole = () => {
+  store.gender = gender.value;
+  store.dataListStudent(true);
+};
+
+const resetData = () => {
+  store.gender = "";
+  store.dataListStudent(true);
+};
 </script>
 
 <template>
@@ -94,6 +105,21 @@ const handleSearch = () => {
           <h1 class="font-JakartaSans text-2xl font-bold text-black my-2">Students</h1>
 
           <AddNewStudents @dataSaved="fetchData" />
+        </div>
+
+        <div class="flex flex-wrap mx-5 my-2 gap-4">
+          <select class="select select-success w-full max-w-xs focus:outline-none" v-model="gender" id="role">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+
+          <Button type="button" @click="handleFilterRole">
+            <i class="pi pi-filter-fill" style="color: white"></i>
+          </Button>
+
+          <Button type="button" class="bg-red-500 border-red-500" @click="resetData">
+            <i class="pi pi-refresh" style="color: white"></i>
+          </Button>
         </div>
 
         <div class="flex flex-wrap mx-5 my-2">

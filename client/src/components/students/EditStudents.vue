@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, watch } from "vue";
 
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
@@ -11,8 +11,6 @@ const store = usestudentsStore();
 
 let visible = ref(false);
 let isHidePassword = ref(true);
-
-const gender = ref([{ name: "Male" }, { name: "Female" }]);
 
 const props = defineProps({
   dataUser: Object,
@@ -41,7 +39,7 @@ const saveEditUser = async () => {
       password: form.password,
       course: form.course,
       phone: form.phone,
-      gender: form.gender?.name,
+      gender: form.gender,
     };
 
     const res = await Api.post(`students/update/${props.dataUser.id}`, payload, {
@@ -119,6 +117,10 @@ const openModal = () => {
 
 const closeModal = () => {
   visible.value = false;
+  resetForm();
+};
+
+const resetForm = () => {
   form.fullname = initialForm.fullname;
   form.username = initialForm.username;
   form.email = initialForm.email;
@@ -136,6 +138,23 @@ const validatePhone = (event) => {
   }
   form.phone = cleanedValue.slice(0, 15);
 };
+
+watch(
+  () => props.dataUser,
+  (newData) => {
+    if (newData) {
+      initialForm.fullname = newData.fullname || "";
+      initialForm.username = newData.username || "";
+      initialForm.email = newData.email || "";
+      initialForm.password = newData.password || "";
+      initialForm.course = newData.course || "";
+      initialForm.phone = newData.phone || "";
+      initialForm.gender = newData.gender || "";
+      resetForm();
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <template>
@@ -204,15 +223,12 @@ const validatePhone = (event) => {
           />
         </div>
 
-        <div class="flex items-center gap-4 mb-8">
-          <label class="font-semibold w-24">Gender</label>
-          <Select
-            v-model="form.gender"
-            :options="gender"
-            optionLabel="name"
-            placeholder="Select a Gender"
-            class="flex-auto"
-          />
+        <div class="flex items-center gap-12 mb-8">
+          <label for="gender" class="font-semibold w-24">Gender</label>
+          <select class="select select-success w-full focus:outline-none" v-model="form.gender" id="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
         </div>
 
         <div class="flex justify-end gap-2">
