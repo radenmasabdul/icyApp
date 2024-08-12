@@ -1,6 +1,7 @@
 <script setup>
 import Layout from "../../layout/Layout.vue";
 import Table from "../../components/Table.vue";
+import AddNewCourses from "../../components/courses/AddNewCourses.vue";
 
 import { ref, onBeforeMount, computed } from "vue";
 import { usecoursesStore } from "../../utils/stores/courses/courses";
@@ -56,7 +57,7 @@ const deleteCourses = async (id) => {
 
       Swal.fire({
         title: "Deleted!",
-        text: "User has been deleted.",
+        text: "Courses has been deleted.",
         icon: "success",
       });
       fetchData();
@@ -90,10 +91,12 @@ const formatDays = (value) => {
 
 const formatCurrency = (value) => {
   if (value) {
-    const numberValue = parseFloat(value);
-    return numberValue.toLocaleString("id-ID", { style: "currency", currency: "IDR" });
+    return parseFloat(value).toLocaleString("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    });
   }
-  return "Rp. 0";
+  return "Rp0";
 };
 </script>
 
@@ -104,7 +107,7 @@ const formatCurrency = (value) => {
         <div class="flex flex-wrap justify-between mx-5 my-2">
           <h1 class="font-JakartaSans text-2xl font-bold text-black my-2">Courses</h1>
 
-          <!-- <AddNewStudents @dataSaved="fetchData" /> -->
+          <AddNewCourses @dataSaved="fetchData" />
         </div>
 
         <div class="flex flex-wrap mx-5 my-2">
@@ -135,7 +138,7 @@ const formatCurrency = (value) => {
               </Column>
 
               <Column field="duration" header="Duration" sortable>
-                <template #body="slotProps"> {{ slotProps.data.duration }}<span> Years</span></template>
+                <template #body="slotProps"> {{ slotProps.data.duration }}</template>
               </Column>
 
               <Column field="start_date" header="Active" sortable>
