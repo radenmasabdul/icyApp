@@ -6,6 +6,7 @@ import ForgotPassword from '../views/auth/ForgotPassword.vue';
 import Home from "../views/home/Home.vue"
 import Admin from '../views/admin/Admin.vue';
 import Student from '../views/student/Student.vue';
+import Courses from '../views/courses/Courses.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -57,6 +58,14 @@ const router = createRouter({
             component: Student,
             meta: {
                 title: "Students",
+            },
+        },
+        {
+            path: "/courses",
+            name: "courses",
+            component: Courses,
+            meta: {
+                title: "Courses",
             },
         },
     ]

@@ -61,7 +61,7 @@ onBeforeMount(async () => {
                   </li>
                   <li>
                     <router-link
-                      to="#"
+                      to="/courses"
                       v-ripple
                       class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple"
                     >
