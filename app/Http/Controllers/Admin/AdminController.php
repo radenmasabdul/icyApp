@@ -21,6 +21,11 @@ class AdminController extends Controller
         try {
             $query = User::query();
 
+            //filter by role
+            if($request->has('role') && !empty($request->role)) {
+                $query->where('role', $request->role);
+            }
+
             //searching
             if($request->has('search')) {
                 $search = $request->get('search');

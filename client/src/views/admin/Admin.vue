@@ -17,6 +17,7 @@ const totalRecords = computed(() => store.getTotalRecords);
 const perPage = computed(() => store.getPerPage);
 
 const search = ref(store.search);
+const roles = ref(store.filterRole);
 
 const columns = [
   { field: "no", header: "No" },
@@ -81,6 +82,16 @@ const handleSearch = () => {
   store.search = search.value;
   store.dataListAdmin(true);
 };
+
+const handleFilterRole = () => {
+  store.roles = roles.value;
+  store.dataListAdmin(true);
+};
+
+const resetData = () => {
+  store.roles = "";
+  store.dataListAdmin(true);
+};
 </script>
 
 <template>
@@ -91,6 +102,21 @@ const handleSearch = () => {
           <h1 class="font-JakartaSans text-2xl font-bold text-black my-2">Users</h1>
 
           <AddNewAdmin @dataSaved="fetchData" />
+        </div>
+
+        <div class="flex flex-wrap mx-5 my-2 gap-4">
+          <select class="select select-success w-full max-w-xs" v-model="roles">
+            <option value="administrator">Admin</option>
+            <option value="adminbranch">Admin Branch</option>
+          </select>
+
+          <Button type="button" @click="handleFilterRole">
+            <i class="pi pi-filter-fill" style="color: white"></i>
+          </Button>
+
+          <Button type="button" @click="resetData">
+            <i class="pi pi-refresh" style="color: white"></i>
+          </Button>
         </div>
 
         <div class="flex flex-wrap mx-5 my-2">

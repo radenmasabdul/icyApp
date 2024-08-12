@@ -6,6 +6,7 @@ export const useadminStore = defineStore('admin', {
     state: () => ({
         dataAdmin: [],
         search: "",
+        roles: "",
         currentPage: 1,
         perPage: 10,
         totalRecords: 0,
@@ -43,6 +44,7 @@ export const useadminStore = defineStore('admin', {
                         search: this.search,
                         page: this.currentPage,
                         perPage: this.perPage,
+                        role: this.roles,
                     }
                 });
 
