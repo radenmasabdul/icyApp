@@ -5,6 +5,7 @@ import Register from '../views/auth/Register.vue';
 import ForgotPassword from '../views/auth/ForgotPassword.vue';
 import Home from "../views/home/Home.vue"
 import Admin from '../views/admin/Admin.vue';
+import Student from '../views/student/Student.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -48,6 +49,14 @@ const router = createRouter({
             component: Admin,
             meta: {
                 title: "Users",
+            },
+        },
+        {
+            path: "/students",
+            name: "students",
+            component: Student,
+            meta: {
+                title: "Students",
             },
         },
     ]

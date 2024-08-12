@@ -50,13 +50,24 @@ onBeforeMount(async () => {
                     </router-link>
                   </li>
                   <li>
-                    <a
+                    <router-link
+                      to="/students"
                       v-ripple
                       class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple"
                     >
                       <i class="pi pi-users mr-2"></i>
                       <span class="font-medium font-JakartaSans">Students</span>
-                    </a>
+                    </router-link>
+                  </li>
+                  <li>
+                    <router-link
+                      to="#"
+                      v-ripple
+                      class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple"
+                    >
+                      <i class="pi pi-book mr-2"></i>
+                      <span class="font-medium font-JakartaSans">Courses</span>
+                    </router-link>
                   </li>
                   <li>
                     <a
