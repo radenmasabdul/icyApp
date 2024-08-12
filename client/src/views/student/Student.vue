@@ -1,6 +1,7 @@
 <script setup>
 import Layout from "../../layout/Layout.vue";
 import Table from "../../components/Table.vue";
+import AddNewStudents from "../../components/students/AddNewStudents.vue";
 
 import { ref, onBeforeMount, computed } from "vue";
 import { usestudentsStore } from "../../utils/stores/students/students";
@@ -91,7 +92,7 @@ const handleSearch = () => {
         <div class="flex flex-wrap justify-between mx-5 my-2">
           <h1 class="font-JakartaSans text-2xl font-bold text-black my-2">Students</h1>
 
-          <!-- <AddNewAdmin @dataSaved="fetchData" /> -->
+          <AddNewStudents @dataSaved="fetchData" />
         </div>
 
         <div class="flex flex-wrap mx-5 my-2">
