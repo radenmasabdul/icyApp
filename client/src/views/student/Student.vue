@@ -140,11 +140,11 @@ const handleSearch = () => {
                 :header="data.header"
               ></Column>
 
-              <template #empty>
-                <tr>
-                  <td colspan="4" class="text-center font-JakartaSans">Data not found</td>
-                </tr>
-              </template>
+              <ColumnGroup type="footer">
+                <Row>
+                  <Column footer="Data Not Found" :colspan="7" class="text-center font-JakartaSans" />
+                </Row>
+              </ColumnGroup>
             </DataTable>
           </Table>
         </div>
