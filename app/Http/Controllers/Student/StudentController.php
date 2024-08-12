@@ -21,6 +21,15 @@ class StudentController extends Controller
         try {
             $query = Student::query();
 
+            //filter
+            if($request->has('course') && !empty($request->course)) {
+                $query->where('course', $request->course);
+            }
+
+            if ($request->has('gender') && !empty($request->gender)) {
+                $query->where('gender', $request->gender);
+            }
+
             //searching
             if($request->has('search')) {
                 $search = $request->get('search');
