@@ -9,7 +9,6 @@ import Api from "../../utils";
 let visible = ref(false);
 
 const emit = defineEmits(["dataSaved"]);
-const level = ref([{ name: "Beginner" }, { name: "Advance" }, { name: "Intermediate" }]);
 
 const course = reactive({
   title: "",
@@ -56,7 +55,7 @@ const addNew = async () => {
       description: course.description,
       instructor: course.instructor,
       duration: parseInt(course.duration),
-      level: course.level?.name,
+      level: course.level,
       price: course.price.toString().replace(/\./g, ""),
       start_date: course.start_date ? moment(course.start_date).format("YYYY-MM-DD") : "",
       end_date: course.end_date ? moment(course.end_date).format("YYYY-MM-DD") : "",
@@ -157,15 +156,13 @@ const closeModal = () => {
           <InputText id="duration" inputmode="numeric" class="flex-auto" autocomplete="off" v-model="course.duration" />
         </div>
 
-        <div class="flex items-center gap-4 mb-4">
-          <label class="font-semibold w-24">Level</label>
-          <Select
-            v-model="course.level"
-            :options="level"
-            optionLabel="name"
-            placeholder="Select a Level"
-            class="flex-auto"
-          />
+        <div class="flex items-center gap-12 mb-4">
+          <label for="level" class="font-semibold w-24">Level</label>
+          <select class="select select-success w-full focus:outline-none" v-model="course.level" id="level">
+            <option value="Beginner">Beginner</option>
+            <option value="Advance">Advance</option>
+            <option value="Intermediate">Intermediate</option>
+          </select>
         </div>
 
         <div class="flex items-center gap-12 mb-4">

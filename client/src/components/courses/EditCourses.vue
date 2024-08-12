@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, watch } from "vue";
 
 import Swal from "sweetalert2";
 import Cookies from "js-cookie";
@@ -11,8 +11,6 @@ import { usecoursesStore } from "../../utils/stores/courses/courses";
 const store = usecoursesStore();
 
 let visible = ref(false);
-
-const level = ref([{ name: "Beginner" }, { name: "Advance" }, { name: "Intermediate" }]);
 
 const props = defineProps({
   dataUser: Object,
@@ -40,7 +38,7 @@ const saveEditCourses = async () => {
       description: form.description,
       instructor: form.instructor,
       duration: form.duration,
-      level: form.level?.name,
+      level: form.level,
       price: form.price.toString(),
       start_date: form.start_date ? moment(form.start_date).format("YYYY-MM-DD") : "",
       end_date: form.end_date ? moment(form.end_date).format("YYYY-MM-DD") : "",
@@ -122,6 +120,10 @@ const openModal = () => {
 
 const closeModal = () => {
   visible.value = false;
+  resetForm();
+};
+
+const resetForm = () => {
   form.title = initialForm.title;
   form.description = initialForm.description;
   form.instructor = initialForm.instructor;
@@ -131,6 +133,24 @@ const closeModal = () => {
   form.start_date = initialForm.start_date;
   form.end_date = initialForm.end_date;
 };
+
+watch(
+  () => props.dataUser,
+  (newData) => {
+    if (newData) {
+      initialForm.title = newData.title || "";
+      initialForm.description = newData.description || "";
+      initialForm.instructor = newData.instructor || "";
+      initialForm.duration = newData.duration || "";
+      initialForm.level = newData.level || "";
+      initialForm.price = newData.price || "";
+      initialForm.start_date = newData.start_date || "";
+      initialForm.end_date = newData.end_date || "";
+      resetForm();
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <template>
@@ -164,15 +184,13 @@ const closeModal = () => {
           <InputText id="duration" inputmode="numeric" class="flex-auto" autocomplete="off" v-model="form.duration" />
         </div>
 
-        <div class="flex items-center gap-4 mb-4">
+        <div class="flex items-center gap-12 mb-4">
           <label class="font-semibold w-24">Level</label>
-          <Select
-            v-model="form.level"
-            :options="level"
-            optionLabel="name"
-            placeholder="Select a Level"
-            class="flex-auto"
-          />
+          <select class="select select-success w-full focus:outline-none" v-model="form.level" id="level">
+            <option value="Beginner">Beginner</option>
+            <option value="Advance">Advance</option>
+            <option value="Intermediate">Intermediate</option>
+          </select>
         </div>
 
         <div class="flex items-center gap-12 mb-4">

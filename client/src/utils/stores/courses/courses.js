@@ -6,6 +6,7 @@ export const usecoursesStore = defineStore('courses', {
     state: () => ({
         dataCourses: [],
         search: "",
+        level: "",
         currentPage: 1,
         perPage: 10,
         totalRecords: 0,
@@ -28,7 +29,8 @@ export const usecoursesStore = defineStore('courses', {
     actions: {
         async dataListCourses(forceRefresh = false) {
             try {
-                if (this.isLoading || (!forceRefresh && this.dataCourses.length > 0 && !forceRefresh)) return;
+
+                if (this.isLoading || (!forceRefresh && this.dataCourses.length > 0)) return;
 
                 this.isLoading = true;
 
@@ -42,6 +44,7 @@ export const usecoursesStore = defineStore('courses', {
                         search: this.search,
                         page: this.currentPage,
                         perPage: this.perPage,
+                        level: this.level,
                     }
                 });
 

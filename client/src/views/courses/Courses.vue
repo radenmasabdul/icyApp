@@ -18,6 +18,7 @@ const totalRecords = computed(() => store.getTotalRecords);
 const perPage = computed(() => store.getPerPage);
 
 const search = ref(store.search);
+const level = ref(store.level);
 
 const columns = [
   { field: "no", header: "No" },
@@ -99,6 +100,16 @@ const formatCurrency = (value) => {
   }
   return "Rp0";
 };
+
+const handleFilterRole = () => {
+  store.level = level.value;
+  store.dataListCourses(true);
+};
+
+const resetData = () => {
+  store.level = "";
+  store.dataListCourses(true);
+};
 </script>
 
 <template>
@@ -109,6 +120,22 @@ const formatCurrency = (value) => {
           <h1 class="font-JakartaSans text-2xl font-bold text-black my-2">Courses</h1>
 
           <AddNewCourses @dataSaved="fetchData" />
+        </div>
+
+        <div class="flex flex-wrap mx-5 my-2 gap-4">
+          <select class="select select-success w-full max-w-xs focus:outline-none" v-model="level" id="level">
+            <option value="Beginner">Beginner</option>
+            <option value="Advance">Advance</option>
+            <option value="Intermediate">Intermediate</option>
+          </select>
+
+          <Button type="button" @click="handleFilterRole">
+            <i class="pi pi-filter-fill" style="color: white"></i>
+          </Button>
+
+          <Button type="button" class="bg-red-500 border-red-500" @click="resetData">
+            <i class="pi pi-refresh" style="color: white"></i>
+          </Button>
         </div>
 
         <div class="flex flex-wrap mx-5 my-2">
