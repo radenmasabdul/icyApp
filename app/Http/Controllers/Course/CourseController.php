@@ -20,6 +20,11 @@ class CourseController extends Controller
         try {
             $query = Course::query();
 
+            //filter by level
+            if($request->has('level') && !empty($request->level)) {
+                $query->where('level', $request->level);
+            }
+
             //searching
             if($request->has('search')) {
                 $search = $request->get('search');
