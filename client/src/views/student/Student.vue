@@ -3,6 +3,7 @@ import Layout from "../../layout/Layout.vue";
 import Table from "../../components/Table.vue";
 import AddNewStudents from "../../components/students/AddNewStudents.vue";
 import EditStudents from "../../components/students/EditStudents.vue";
+import ViewStudents from "../../components/students/ViewStudents.vue";
 
 import { ref, onBeforeMount, computed } from "vue";
 import { usestudentsStore } from "../../utils/stores/students/students";
@@ -152,6 +153,7 @@ const resetData = () => {
                     <button @click="deleteStudent(slotProps.data.id)">
                       <i class="pi pi-trash" style="color: red"></i>
                     </button>
+                    <ViewStudents :dataUser="slotProps.data" />
                   </div>
                 </template>
               </Column>
