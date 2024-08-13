@@ -32,7 +32,7 @@ const saveEditUser = async () => {
     let payload = {
       name: form.name,
       email: form.email,
-      password: form.password,
+      password: form.password ? form.password : props.dataUser.password,
       role: form.role,
     };
 
@@ -44,7 +44,7 @@ const saveEditUser = async () => {
 
     initialForm.name = form.name;
     initialForm.email = form.email;
-    initialForm.password = form.password;
+    initialForm.password = form.password ? form.password : initialForm.password;
     initialForm.role = form.role;
 
     Swal.fire({
