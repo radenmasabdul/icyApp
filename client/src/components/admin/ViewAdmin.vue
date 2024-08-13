@@ -1,10 +1,6 @@
 <script setup>
 import { ref, reactive, watch } from "vue";
 
-import { useadminStore } from "../../utils/stores/admin/admin";
-
-const store = useadminStore();
-
 let visible = ref(false);
 let isHidePassword = ref(true);
 
