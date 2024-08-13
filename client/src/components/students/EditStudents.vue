@@ -36,7 +36,7 @@ const saveEditUser = async () => {
       fullname: form.fullname,
       username: form.username,
       email: form.email,
-      password: form.password,
+      password: form.password ? form.password : props.dataUser.password,
       course: form.course,
       phone: form.phone,
       gender: form.gender,
@@ -51,7 +51,7 @@ const saveEditUser = async () => {
     initialForm.fullname = form.fullname;
     initialForm.username = form.username;
     initialForm.email = form.email;
-    initialForm.password = form.password;
+    initialForm.password = form.password ? form.password : initialForm.password;
     initialForm.course = form.course;
     initialForm.phone = form.phone;
     initialForm.gender = form.gender;
