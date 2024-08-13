@@ -19,4 +19,9 @@ class Course extends Model
         'start_date',
         'end_date',
     ];
+
+    public function getPriceAttribute($value)
+    {
+        return (float) $value;
+    }
 }

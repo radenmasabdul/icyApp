@@ -73,7 +73,7 @@ class CourseController extends Controller
             'instructor' => 'required|unique:courses',
             'duration' => 'required|integer',
             'level' => 'required|string',
-            'price' => 'required|string',
+            'price' => 'required|numeric',
             'start_date' => 'required|string',
             'end_date' => 'required|string',
         ]);
@@ -146,7 +146,7 @@ class CourseController extends Controller
                 'instructor' => 'required|string',
                 'duration' => 'required|integer',
                 'level' => 'required|string',
-                'price' => 'required|string',
+                'price' => 'required|numeric',
                 'start_date' => 'required|string',
                 'end_date' => 'required|string',
             ]);
