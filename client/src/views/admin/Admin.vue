@@ -3,6 +3,7 @@ import Layout from "../../layout/Layout.vue";
 import Table from "../../components/Table.vue";
 import AddNewAdmin from "../../components/admin/AddNewAdmin.vue";
 import EditAdmin from "../../components/admin/EditAdmin.vue";
+import ViewAdmin from "../../components/admin/ViewAdmin.vue";
 
 import { ref, onBeforeMount, computed } from "vue";
 import { useadminStore } from "../../utils/stores/admin/admin";
@@ -150,6 +151,7 @@ const resetData = () => {
                     <button @click="deleteUsers(slotProps.data.id)">
                       <i class="pi pi-trash" style="color: red"></i>
                     </button>
+                    <ViewAdmin :dataUser="slotProps.data" />
                   </div>
                 </template>
               </Column>
