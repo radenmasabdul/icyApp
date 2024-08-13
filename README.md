@@ -1,66 +1,100 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<p align="center" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+  <a href="https://laravel.com" target="_blank">
+    <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/laravel.svg" alt="laravel" width="100"/>
+  </a>
+  <a href="https://vuejs.org/" target="_blank">
+    <img src="https://github.com/radenmasabdul/logo/blob/628bbb52a7183bb0ecc0a7213390276e921dcf0d/vue-svgrepo-com.svg" alt="vue" width="130"/>
+  </a>
 </p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# About Projects
+This application was created to complete the Frontend Web Developers test at PT. Indocyber Global Technology. Created using Laravel for Backend and Vue 3 for Frontend, and connected to a MySQL Database. Has features such as Role Access Rights, Authentication, basic CRUD operations, Pagination, as well as Filters and Searching. As well as API documentation using Postman.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Built with :
+<div style="text-align: right">
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/laravel.svg" alt="laravel" width="100"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/php.svg" alt="php" width="125"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/628bbb52a7183bb0ecc0a7213390276e921dcf0d/vue-svgrepo-com.svg" alt="vue" width="125"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/vite.svg" alt="vite" width="100"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/tailwindcss.svg" alt="tailwind" width="100"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/primevue.svg" alt="primevue" width="90"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/Axios.svg.png" alt="axios" width="150"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/javascript.svg" alt="js" width="100"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/moment-js.svg" alt="moment" width="100"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/mysql-logo-svgrepo-com.svg" alt="mysql" width="100"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/-zl0Jxn-pinia.svg" alt="pinia" width="100"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/SweetAlert2.png" alt="swall" width="150"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/daisyUI.png" alt="daisy" width="100"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/html-5.svg" alt="html" width="100"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/css3.svg" alt="css" width="100"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/postman.svg" alt="postman" width="100"/>
+ <img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/xampp-svgrepo-com.svg" alt="xampp" width="100"/>
+</div>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+# The following is a display of the user interface
+<h2>1. This is the login page.</p>
+<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/01.%20login.png" alt="login"/>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<h2>2. This is the forgot password page.</p>
+<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/02.%20forgot%20password.png" alt="forgot"/>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+<h2>3. This is the register page.</p>
+<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/03.%20register.png" alt="register"/>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<h2>4. Admin Dashboard page. Admin can access all pages.</p>
+<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/04.%20dashboard.png" alt="dashboard"/>
 
-## Laravel Sponsors
+<h2>5. Admin User Management Menu. In this menu, the admin can CRUD and it is directly integrated with the database</p>
+<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/05.%20users.png" alt="users"/>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+<h2>6. Display for data filters</p>
+<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/10.%20user%20filter.png" alt="filter"/>
 
-### Premium Partners
+<h2>7. Display for user not found</p>
+<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/11.%20user%20not%20found.png" alt="notfound"/>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+<h2>8. Branch users can only access a few menus, can only view data and cannot CRUD</p>
+<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/12.%20user%20branch.png" alt="branch"/>
 
-## Contributing
+## Getting Started
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<h4>This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.</h4>
 
-## Code of Conduct
+## Prerequisites
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<h1>Don't forget to customize the database</h1>
 
-## Security Vulnerabilities
+1. First copy the repo via the following link
+```git@github.com:radenmasabdul/icyApp.git```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+2. Open the file using your favorite code editor
+```Local Disk (D)/your folder/icyApp```
 
-## License
+3. Open 2 terminal in code editor
+Install the method in terminal 1
+``` composer install ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+4. And then Install the method in terminal 2
+``` npm install ```
+
+5. If there is no .env file yet, you need to copy from the template:
+```cp .env.example .env```
+
+6. Then, generate application key:
+``` php artisan key:generate ```
+
+7. Open the .env file and adjust the necessary configuration (such as database settings).
+
+8. If the project requires database tables, run the migration:
+``` php artisan migrate ```
+
+9. To run a Laravel local server:
+``` php artisan serve ```
+
+10. To run a Vue local server:
+``` npm run dev ```
+
+Your application is ready to apply! Have a Great Day :)
