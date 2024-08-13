@@ -1,14 +1,6 @@
 <script setup>
 import { ref, reactive, watch } from "vue";
 
-// import Swal from "sweetalert2";
-// import Cookies from "js-cookie";
-// import Api from "../../utils";
-
-// import { usestudentsStore } from "../../utils/stores/students/students";
-
-// const store = usestudentsStore();
-
 let visible = ref(false);
 let isHidePassword = ref(true);
 
@@ -28,89 +20,6 @@ const initialForm = reactive({
 
 const form = reactive({ ...initialForm });
 
-// const saveEditUser = async () => {
-//   try {
-//     const token = Cookies.get("token");
-
-//     let payload = {
-//       fullname: form.fullname,
-//       username: form.username,
-//       email: form.email,
-//       password: form.password ? form.password : props.dataUser.password,
-//       course: form.course,
-//       phone: form.phone,
-//       gender: form.gender,
-//     };
-
-//     const res = await Api.post(`students/update/${props.dataUser.id}`, payload, {
-//       headers: {
-//         Authorization: `Bearer ${token}`,
-//       },
-//     });
-
-//     initialForm.fullname = form.fullname;
-//     initialForm.username = form.username;
-//     initialForm.email = form.email;
-//     initialForm.password = form.password ? form.password : initialForm.password;
-//     initialForm.course = form.course;
-//     initialForm.phone = form.phone;
-//     initialForm.gender = form.gender;
-
-//     Swal.fire({
-//       position: "center",
-//       icon: "success",
-//       title: "Your work has been saved",
-//       showConfirmButton: false,
-//       timer: 1500,
-//     });
-
-//     closeModal();
-//     await store.dataListStudent(true);
-//   } catch (error) {
-//     console.error(error);
-//     const errorData = error.response.data;
-
-//     if (error.response && error.response.data) {
-//       let errorMessage = "";
-
-//       switch (true) {
-//         case !!errorData.fullname:
-//           errorMessage += errorData.email.join(" ") + "\n";
-//           break;
-
-//         case !!errorData.username:
-//           errorMessage += errorData.name.join(" ") + "\n";
-//           break;
-
-//         case !!errorData.email:
-//           errorMessage += errorData.password.join(" ") + "\n";
-//           break;
-
-//         case !!errorData.password:
-//           errorMessage += errorData.role.join(" ") + "\n";
-//           break;
-
-//         case !!errorData.message:
-//           errorMessage += errorData.message + "\n";
-//           break;
-
-//         default:
-//           errorMessage = "Something went wrong!";
-//       }
-
-//       Swal.fire({
-//         icon: "error",
-//         title: "Failed!",
-//         text: errorMessage.trim(),
-//       });
-//     }
-//   }
-// };
-
-// const togglePasswordVisibility = () => {
-//   isHidePassword.value = !isHidePassword.value;
-// };
-
 const openModal = () => {
   visible.value = true;
 };
@@ -129,15 +38,6 @@ const resetForm = () => {
   form.phone = initialForm.phone;
   form.gender = initialForm.gender;
 };
-
-// const validatePhone = (event) => {
-//   const value = event.target.value;
-//   const cleanedValue = value.replace(/[^\d]/g, "");
-//   if (cleanedValue !== value) {
-//     event.target.value = cleanedValue;
-//   }
-//   form.phone = cleanedValue.slice(0, 15);
-// };
 
 watch(
   () => props.dataUser,
