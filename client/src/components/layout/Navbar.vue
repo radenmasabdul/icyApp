@@ -29,7 +29,7 @@ const logout = async () => {
       icon: "success",
       title: "Logout Successfully!",
       showConfirmButton: false,
-      timer: 1000,
+      timer: 1500,
     });
 
     router.push({ name: "login" });

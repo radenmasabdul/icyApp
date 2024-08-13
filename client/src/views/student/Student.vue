@@ -20,6 +20,8 @@ const perPage = computed(() => store.getPerPage);
 const search = ref(store.search);
 const gender = ref(store.gender);
 
+const role = Cookies.get("role");
+
 const columns = [
   { field: "no", header: "No" },
   { field: "fullname", header: "Name" },
@@ -148,11 +150,13 @@ const resetData = () => {
 
               <Column header="Actions">
                 <template #body="slotProps">
-                  <div class="flex gap-4">
-                    <EditStudents :dataUser="slotProps.data" />
-                    <button @click="deleteStudent(slotProps.data.id)">
-                      <i class="pi pi-trash" style="color: red"></i>
-                    </button>
+                  <div class="flex justify-center items-center gap-4">
+                    <div class="flex gap-4" v-if="role === 'administrator'">
+                      <EditStudents :dataUser="slotProps.data" />
+                      <button @click="deleteStudent(slotProps.data.id)">
+                        <i class="pi pi-trash" style="color: red"></i>
+                      </button>
+                    </div>
                     <ViewStudents :dataUser="slotProps.data" />
                   </div>
                 </template>
