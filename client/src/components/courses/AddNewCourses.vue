@@ -56,7 +56,8 @@ const addNew = async () => {
       instructor: course.instructor,
       duration: parseInt(course.duration),
       level: course.level,
-      price: course.price.toString().replace(/\./g, ""),
+      //   price: course.price.toString().replace(/\./g, ""),
+      price: course.price,
       start_date: course.start_date ? moment(course.start_date).format("YYYY-MM-DD") : "",
       end_date: course.end_date ? moment(course.end_date).format("YYYY-MM-DD") : "",
     };

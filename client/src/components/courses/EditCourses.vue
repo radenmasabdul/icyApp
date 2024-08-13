@@ -22,7 +22,7 @@ const initialForm = reactive({
   instructor: props.dataUser.instructor,
   duration: props.dataUser.duration,
   level: props.dataUser.level,
-  price: parseFloat(props.dataUser.price.replace(/[^\d.-]/g, "")),
+  price: props.dataUser.price,
   start_date: props.dataUser.start_date,
   end_date: props.dataUser.end_date,
 });
@@ -39,7 +39,7 @@ const saveEditCourses = async () => {
       instructor: form.instructor,
       duration: form.duration,
       level: form.level,
-      price: form.price.toString(),
+      price: form.price,
       start_date: form.start_date ? moment(form.start_date).format("YYYY-MM-DD") : "",
       end_date: form.end_date ? moment(form.end_date).format("YYYY-MM-DD") : "",
     };
