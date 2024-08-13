@@ -23,6 +23,7 @@ const logout = async () => {
 
     Cookies.remove("token");
     Cookies.remove("user");
+    Cookies.remove("role");
 
     Swal.fire({
       icon: "success",

@@ -4,13 +4,17 @@ import Logo from "../../assets/logo.jpg";
 import { ref, onBeforeMount, computed } from "vue";
 import { useadminByLoginStore } from "../../utils/stores/auth/adminByLogin.js";
 
+import Cookies from "js-cookie";
+
 const store = useadminByLoginStore();
 const dataAdmin = computed(() => store.getDataAdminLogin);
 
+const role = Cookies.get("role");
+
 const visible = ref(false);
 
-onBeforeMount(async () => {
-  await store.dataAdmin();
+onBeforeMount(() => {
+  store.dataAdmin();
 });
 </script>
 
@@ -39,7 +43,7 @@ onBeforeMount(async () => {
                       <span class="font-medium font-JakartaSans">Dashboard</span>
                     </router-link>
                   </li>
-                  <li>
+                  <li v-if="role === 'administrator'">
                     <router-link
                       to="/users"
                       v-ripple

@@ -5,7 +5,6 @@ import Api from '../../index.js';
 export const useadminByLoginStore = defineStore('adminByLogin', {
     state: () => ({
         dataAdminLogin: [],
-        isLoading: false,
     }),
     getters: {
         getDataAdminLogin(state) {
@@ -13,12 +12,8 @@ export const useadminByLoginStore = defineStore('adminByLogin', {
         }
     },
     actions: {
-        async dataAdmin(forceRefresh = false) {
+        async dataAdmin() {
             try {
-
-                if (this.isLoading || (!forceRefresh && this.dataAdminLogin.length > 0)) return;
-
-                this.isLoading = true;
 
                 const token = Cookies.get("token");
 
@@ -27,6 +22,7 @@ export const useadminByLoginStore = defineStore('adminByLogin', {
                         Authorization: `Bearer ${token}`,
                     },
                 });
+
                 this.dataAdminLogin = res.data
             } catch (error) {
                 console.error(error)
