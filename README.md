@@ -34,29 +34,56 @@ This application was created to complete the Frontend Web Developers test at PT.
 
 
 # The following is a display of the user interface
-<h2>1. This is the login page.</p>
-<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/01.%20login.png" alt="login"/>
+<h2>1. This is the login page.</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/fee175bb2b20fd8d7dc22c0528482aff0d67b785/icyapp_images/01.%20login.png" alt="login"/>
 
-<h2>2. This is the forgot password page.</p>
-<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/02.%20forgot%20password.png" alt="forgot"/>
+<h2>2. This is the forgot password page.</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/fee175bb2b20fd8d7dc22c0528482aff0d67b785/icyapp_images/02.%20forgot.png" alt="forgot"/>
 
-<h2>3. This is the register page.</p>
-<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/03.%20register.png" alt="register"/>
+<h2>3. This is the register page.</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/fee175bb2b20fd8d7dc22c0528482aff0d67b785/icyapp_images/03.%20register.png" alt="register"/>
 
-<h2>4. Admin Dashboard page. Admin can access all pages.</p>
-<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/04.%20dashboard.png" alt="dashboard"/>
+<h2>4. Login as Administrator. Admin can access all pages.</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/fee175bb2b20fd8d7dc22c0528482aff0d67b785/icyapp_images/04.%20login%20as%20administrator.png" alt="dashboard"/>
 
-<h2>5. Admin User Management Menu. In this menu, the admin can CRUD and it is directly integrated with the database</p>
-<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/05.%20users.png" alt="users"/>
+<h2>5. List User Management Menu for Administrator. In this menu, the admin can CRUD and it is directly integrated with the database</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/fee175bb2b20fd8d7dc22c0528482aff0d67b785/icyapp_images/05.%20menu%20user.png" alt="users"/>
 
-<h2>6. Display for data filters</p>
-<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/10.%20user%20filter.png" alt="filter"/>
+<h2>6. Display for Add New Users</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/fee175bb2b20fd8d7dc22c0528482aff0d67b785/icyapp_images/06.%20add%20new%20user.png" alt="add"/>
 
-<h2>7. Display for user not found</p>
-<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/11.%20user%20not%20found.png" alt="notfound"/>
+<h2>7. Display for Edit Users</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/fee175bb2b20fd8d7dc22c0528482aff0d67b785/icyapp_images/07.%20edit%20user.png" alt="edit"/>
 
-<h2>8. Branch users can only access a few menus, can only view data and cannot CRUD</p>
-<img src="https://github.com/radenmasabdul/logo/blob/ab1b5bbc5e56c3b7476f10bfc97bdb392b65379e/icy_app_images/12.%20user%20branch.png" alt="branch"/>
+<h2>8. Display for Delete Users</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/fee175bb2b20fd8d7dc22c0528482aff0d67b785/icyapp_images/08.%20delete.png" alt="delete"/>
+
+<h2>9. Display for View Users</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/fee175bb2b20fd8d7dc22c0528482aff0d67b785/icyapp_images/09.%20view%20users.png" alt="delete"/>
+
+<h2>10. Display for Filters Users</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/fee175bb2b20fd8d7dc22c0528482aff0d67b785/icyapp_images/10.%20filter.png" alt="filter"/>
+
+<h2>11. Display for Search Users</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/d776180b3902df96485781b6a7b24c2fb56dfbc3/icyapp_images/11.%20search.png" alt="search"/>
+
+<h2>12. Display for Search Users Not Found</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/d776180b3902df96485781b6a7b24c2fb56dfbc3/icyapp_images/12.%20search%20not%20found.png" alt="notfound"/>
+
+<h2>13. Login as Admin Branch. Admin cant access all pages, just view only.</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/d776180b3902df96485781b6a7b24c2fb56dfbc3/icyapp_images/13.%20login%20as%20admin%20branch.png" alt="adminbranch"/>
+
+<h2>14. List Student Management Menu for Admin Branch In this menu, the Admin Branch cant CRUD, just view only</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/d776180b3902df96485781b6a7b24c2fb56dfbc3/icyapp_images/14.%20students%20admin%20branch.png" alt="students"/>
+
+<h2>15. Display for View Students</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/d776180b3902df96485781b6a7b24c2fb56dfbc3/icyapp_images/15.%20view%20only.png" alt="views"/>
+
+<h2>16. List Courses Management Menu for Admin Branch In this menu, the Admin Branch cant CRUD, just view only</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/d776180b3902df96485781b6a7b24c2fb56dfbc3/icyapp_images/16.%20courses%20admin%20branch.png" alt="courses"/>
+
+<h2>17. Display for View Courses</h2>
+<img src="https://github.com/radenmasabdul/logo/blob/d776180b3902df96485781b6a7b24c2fb56dfbc3/icyapp_images/17.%20view%20only.png" alt="views"/>
 
 ## Getting Started
 
