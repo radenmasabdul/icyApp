@@ -107,7 +107,7 @@ const resetData = () => {
         <div class="flex flex-wrap justify-between mx-5 my-2">
           <h1 class="font-JakartaSans text-2xl font-bold text-black my-2">Students</h1>
 
-          <AddNewStudents @dataSaved="fetchData" />
+          <AddNewStudents @dataSaved="fetchData" v-if="role === 'administrator'" />
         </div>
 
         <div class="flex flex-wrap mx-5 my-2 gap-4">
