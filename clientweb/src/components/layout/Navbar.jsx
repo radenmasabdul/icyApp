@@ -1,4 +1,4 @@
-import Logo from "../../assets/logo.jpg";
+import { useNavigate } from "react-router-dom";
 
 import {
     Typography,
@@ -9,7 +9,46 @@ import {
     MenuItem,
 } from "@material-tailwind/react";
 
+import Cookies from "js-cookie";
+import Swal from "sweetalert2";
+
+import Api from "../../utils/apiRequest";
+import Logo from "../../assets/logo.jpg";
+
 const NavbarSimple = () => {
+    const navigate = useNavigate();
+
+    const handleLogout = async () => {
+        try {
+            const token = Cookies.get("token");
+
+            await Api.post(
+                "/logout",
+                {},
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            Cookies.remove("token");
+            Cookies.remove("user");
+            Cookies.remove("role");
+
+            Swal.fire({
+                icon: "success",
+                title: "Logout Successfully!",
+                showConfirmButton: false,
+                timer: 1500,
+            });
+
+            navigate("/");
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     return (
         <>
             <div className="w-full mx-auto bg-gray-200 px-4 py-3">
@@ -116,7 +155,10 @@ const NavbarSimple = () => {
                                 </Typography>
                             </MenuItem>
                             <hr className="my-2 border-blue-gray-50" />
-                            <MenuItem className="flex items-center gap-2 ">
+                            <MenuItem
+                                className="flex items-center gap-2 "
+                                onClick={handleLogout}
+                            >
                                 <svg
                                     width="16"
                                     height="14"
